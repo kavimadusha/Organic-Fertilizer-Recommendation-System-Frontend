@@ -1,0 +1,174 @@
+<html>
+
+<head>
+    <title>OFRS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="Index.css">
+
+</head>
+
+<body>
+
+    <div style="margin-top: 5px; margin-left: 150px; margin-bottom: -10px;">
+        <!-- <img src="OFRS.png" width="200" hight="200">
+        <h1>Organic Fertilizer Recommendation System</h1> -->
+
+        <table>
+            <tr>
+                <td><img src="OFRS.png" width="140" hight="140"></td>
+                <td>
+                    <h1><b>Organic Fertilizer Recommendation System</b></h1>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <hr>
+    <div class="container">  
+        <div class="row">
+            <div class="col-md-6">
+                <p style="font-family: Times New Roman " ;>
+                <h5> <b>Please Fill the Below Details</b> </h5>
+                </p>
+
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <form action="" class="form-horizontal" id="myForm">
+                            <div class="form-group required">
+                                <label for="cropType" class="control-label col-sm-2">Crop Type</label>
+                                <select class="form-control" id="cropType" required>
+                                    <option></option>
+                                </select>
+                                <p style="color: white; background-color: red; padding-left: 8px;" id="vcropType"></p>
+
+                                <!-- <div id="vcropType">Crop Type is Required</div> -->
+
+                            </div>
+                            <div class="form-group required" style="margin-top: -15px;">
+                                <label for="cropAge">Crop Age</label>
+                                <select class="form-control" id="cropAge" required>
+                                    <option></option>
+                                </select>
+                                <p style="color: white; background-color: red; padding-left: 8px;" id="vcropAge"></p>
+                            </div>
+
+                            <div class="form-group" style="margin-top: -15px;">
+                                <label for="area">Land Area (Ha)</label>
+                                <input type="number" min="0" class="form-control" id="area">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="soilN">Nitrogen (N) Content of Soil (mg/Kg) </label>
+                                <input type="number" min="0" class="form-control" id="soilN">
+                            </div>
+                            <div class="form-group">
+                                <label for="soilP">Phosphorus (P) Content of Soil (mg/Kg) </label>
+                                <input type="number" min="0" class="form-control" id="soilP">
+                            </div>
+                            <div class="form-group">
+                                <label for="soilK">Potassium (K) Content of Soil (mg/Kg) </label>
+                                <input type="number" min="0" class="form-control" id="soilK">
+                            </div>
+                            <div class="form-group">
+                                <label for="compostsN">Nitrogen (N) Content of Composts (mg/Kg)</label>
+                                <input type="number" min="0" max="1000000" class="form-control" id="compostsN">
+                                <p style="color: white; background-color: red; padding-left: 8px;" id="vcompostsN"></p>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="compostsP">Phosphorus (P) Content of Composts (mg/Kg)</label>
+                                <input type="number" min="0" max="1000000" class="form-control" id="compostsP">
+                                <p style="color: white; background-color: red; padding-left: 8px;" id="vcompostsP"></p>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="compostsK">Potassium (K) Content of Composts (mg/Kg)</label>
+                                <input type="number" min="0" max="1000000" class="form-control" id="compostsK">
+                                <p style="color: white; background-color: red; padding-left: 8px;" id="vcompostsK"></p>
+
+                            </div>
+                            <br>
+                            <div style="text-align: center;">
+                                <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                                <button type="button" class="btn btn-danger" id="btnReset">Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+
+                <div class="card" style="margin-top:56.5px;">
+
+                    <div class="card-body">
+                        <b id="resultheader"></b>
+
+                        <table class="table" style="margin-top: 12px;">
+                            <tbody>
+                                <tr>
+                                    <td>NPK Requirement (Kg/Ha) :</td>
+                                    <td id="NPK"></td>
+                                </tr>
+                                <tr>
+                                    <td>Land Area (Ha) :</td>
+                                    <td id="areaResult"></td>
+                                </tr>
+                                <tr>
+                                    <td>Amount of Compost Required (Kg) :</td>
+                                    <td id="Amount"></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                <div style=" margin-top:5px;">
+                </div>
+                <div class="card">
+
+                    <div style="padding-left: 10px; margin-top:20px; margin-bottom:20px;">
+                        <th><b>Select one from the below recommendation as per the pereference</b></th>
+
+                        <div class="card-body">
+
+                            <table class="table">
+                                <thead>
+
+                                    <tr>
+                                        <th scope="col">Natural Source</th>
+                                        <th scope="col">Required Amount (Kg)</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody id="Naturaltbody">
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <footer style="width: 100%;">
+        <div class="text-center p-3 " style="background-color: #021E2E; margin-top: 10px; color: #ffff;">
+            © 2022 Copyright: <b> Organic Fertilizer Recommendation System</b>
+        </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+        integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+        crossorigin="anonymous"></script>
+    <script src="Index.js"></script>
+</body>
+
+</html>
